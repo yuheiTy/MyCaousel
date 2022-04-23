@@ -37,6 +37,7 @@ ul {
   padding: 0;
   height: 100%;
   display: flex;
+  transition: transform 0.3s;
 }
 ul li {
   height: 100%;

@@ -1,8 +1,23 @@
+@charset "UTF-8";
 .container {
   width: 80%;
   height: 220px;
   margin: 16px auto;
   overflow: hidden;
+  position: relative;
+  /*prev nextの親要素*/
+}
+.container #prev,
+.container #next {
+  position: absolute;
+  /*containerの子要素*/
+  top: 100px;
+}
+.container #prev {
+  left: 0;
+}
+.container #next {
+  right: 0;
 }
 
 ul {

@@ -3,6 +3,18 @@
     height: 220px;
     margin: 16px auto;
     overflow: hidden;
+    position: relative;/*prev nextの親要素*/
+    #prev,
+    #next{
+        position: absolute;/*containerの子要素*/
+        top: 100px;
+    }
+    #prev{
+        left: 0;
+    }
+    #next{
+        right: 0;
+    }
 }
 ul{
     list-style: none;

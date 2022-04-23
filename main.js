@@ -2,6 +2,7 @@ const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const ul = document.querySelector("ul");
 const slides = ul.children;
+const dots = [];
 let currentIndex = 0;
 
 function updeteButtns(){
@@ -16,17 +17,48 @@ function updeteButtns(){
     }
 }
 
+function moveSlides(){
+    const slidewidth = slides[0].getBoundingClientRect().width;
+    ul.style.transform = `translateX(${-1*slidewidth * currentIndex}px)`;
+}
+
+function setupButtons(){
+    for(let i = 0; i < slides.length; i++){
+        const button = document.createElement('button');
+        button.addEventListener('click', ()=> {
+            currentIndex = i;
+            updeteDots();
+            updeteButtns();
+            moveSlides();
+        });
+        dots.push(button);
+        document.querySelector('nav').appendChild(button);
+    }
+    dots[0].classList.add('current');
+}
+
+function updeteDots(){
+    dots.forEach(dot => {
+        dot.classList.remove('current');
+    });
+    dots[currentIndex].classList.add('current');
+}
+
 updeteButtns();
+setupButtons();
 next.addEventListener('click',()=> {
     currentIndex++;
     updeteButtns();
-    const slidewidth = slides[0].getBoundingClientRect().width;
-    ul.style.transform = `translateX(${-1*slidewidth * currentIndex}px)`;
-})
+    updeteDots();
+    moveSlides();
+});
 
 prev.addEventListener('click',()=> {
     currentIndex--;
     updeteButtns();
-    const slidewidth = slides[0].getBoundingClientRect().width;
-    ul.style.transform = `translateX(${-1*slidewidth * currentIndex}px)`;
-})
+    moveSlides();
+});
+
+window.addEventListener('resize',()=>{
+    moveSlides();
+});

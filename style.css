@@ -48,4 +48,8 @@ ul li img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

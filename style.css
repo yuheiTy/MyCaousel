@@ -11,7 +11,13 @@
 .container #next {
   position: absolute;
   /*containerの子要素*/
-  top: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 24px;
+  padding: 0 8px 4px;
 }
 .container #prev {
   left: 0;
